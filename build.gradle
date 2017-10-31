@@ -1,0 +1,28 @@
+description = "Property-based Testing with JUnit-QuickCheck"
+
+configurations.create('${project.name}')
+
+buildscript {
+	repositories {
+		mavenLocal()
+		if (project.hasProperty("artifactRepository")) {
+			maven { url = artifactRepository }
+		} else {
+			mavenCentral()
+		}
+	}
+	apply from: "gradle/classpath.gradle", to: buildscript
+}
+
+[
+	"maven",
+	"java",
+	"eclipse",
+	"junit5",
+	"assertj",
+	"quickcheck"
+].each {
+	apply from: "${project.gradleApplyFromPath}/${it}.gradle"
+}
+
+repositories.each { logger.info("Repository $it.name") }

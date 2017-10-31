@@ -1,2 +1,3 @@
 # pbt-junit-quickcheck
-Property-based Testing with JUnit-Quickcheck
+
+Example code for my article about Property-based Testing with JUnit-Quickcheck.
